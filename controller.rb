@@ -25,7 +25,7 @@ def products
 end
 
 # 商品を配列にまとめる
-def set_foods(genres)
+def setting_foods(genres)
   @foods = genres
 end
 
@@ -43,7 +43,7 @@ end
 # ジャンルを選んでそのジャンルが存在するか確認する。存在しない場合はもう一度選んでもらう
 def search_food
   loop {
-    # を受け取る   
+     
     @genru_id = gets.to_i
 
     @select_food = @foods.find {|food| food.id == @genru_id}
@@ -52,7 +52,7 @@ def search_food
     if @select_food.nil?
       puts "もう一度番号を選択してください"
     else
-      set_menus(products)
+      setting_menus(products)
       break
     end
   }
@@ -60,7 +60,7 @@ end
 
 
 # メニューを配列にまとめる
-def set_menus(menus)
+def setting_menus(menus)
   @menus = menus
 end
 

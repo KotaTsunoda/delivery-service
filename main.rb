@@ -4,27 +4,27 @@ require './controller.rb'
 genres = selecting
 
 # ジャンルを配列にまとめる
-set_foods(selecting)
+setting_foods(selecting)
 
 # ジャンル一覧
 selecting_list
 
-# ジャンルを選んでその商品が存在するか確認する
+# ジャンルを選んでその商品が存在するか確認する（存在しない場合は、もう一度選択してもらう）
 search_food
 
-# 商品を作成
+# メニューを作成
 menus = products
 
-# 商品を配列にまとめる
-set_menus(products)
+# メニューを配列にまとめる
+setting_menus(products)
 
-# 商品一覧
+# メニュー一覧
 products_list
 
-# 商品を選んでその商品が存在するか確認する
+# メニュー番号を選んでその商品が存在するか確認する
 search_menu
 
-# お会計
+# お支払い方法の選択
 checking
 
 #住所の入力と注文完了のお知らせ
