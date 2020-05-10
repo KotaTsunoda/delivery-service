@@ -25,7 +25,7 @@ def products
 end
 
 # 商品を配列にまとめる
-def set_foods(genres)
+def setting_foods(genres)
   @foods = genres
 end
 
@@ -37,22 +37,22 @@ def selecting_list
     puts "番号:#{food.id} #{food.name}"
   end
   puts "-----------------------------------"
-  puts "番号を選択してください"
+  puts "番号を選択してください（半角数字）"
 end
 
 # ジャンルを選んでそのジャンルが存在するか確認する。存在しない場合はもう一度選んでもらう
 def search_food
   loop {
-    # を受け取る   
+     
     @genru_id = gets.to_i
 
     @select_food = @foods.find {|food| food.id == @genru_id}
 
     #変数に値が入っているか確認
     if @select_food.nil?
-      puts "もう一度番号を選択してください"
+      puts "もう一度番号を選択してください（半角数字）"
     else
-      set_menus(products)
+      setting_menus(products)
       break
     end
   }
@@ -60,7 +60,7 @@ end
 
 
 # メニューを配列にまとめる
-def set_menus(menus)
+def setting_menus(menus)
   @menus = menus
 end
 
@@ -83,7 +83,7 @@ def products_list
     end  
   end
      puts "-----------------------------------"
-     puts "商品番号を選択してください"
+     puts "商品番号を選択してください（半角数字）"
 end
 
 # 商品を選んでその商品が存在するか確認する
@@ -97,7 +97,7 @@ def search_menu
     # 変数に値が入っているか確認
     if @select_menu.nil?
       puts "その商品はありません。"  
-      puts "もう一度選んでください。"
+      puts "もう一度選んでください。（半角数字）"
     else
       puts "お会計 : #{@select_menu.price}円"
       puts "お支払い方法を入力してください（現金 or クレジットカード）"
