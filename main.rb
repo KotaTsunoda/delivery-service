@@ -1,8 +1,5 @@
 require './controller.rb'
 
-# ジャンルを作成
-genres = selecting
-
 # ジャンルを配列にまとめる
 setting_foods(selecting)
 
@@ -11,12 +8,6 @@ selecting_list
 
 # ジャンルを選んでその商品が存在するか確認する（存在しない場合は、もう一度選択してもらう）
 search_food
-
-# メニューを作成
-menus = products
-
-# メニューを配列にまとめる
-setting_menus(products)
 
 # メニュー一覧
 products_list
