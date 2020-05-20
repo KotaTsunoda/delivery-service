@@ -23,7 +23,7 @@ def menus
   ]
 end
 
-# ジャンル一覧
+# ジャンル選択
 def select_genru
   puts "ジャンル一覧"
   puts "-----------------------------------"
@@ -47,7 +47,7 @@ def select_genru
 end
 
 
-# メニューの表示と選択
+# メニュー選択
 def select_menu
   puts "メニュー"
   puts "-----------------------------------"
@@ -71,7 +71,6 @@ def select_menu
 
   loop {
     # 商品名を受け取る
-    #ここから
     @menu_id = gets.to_i
 
     @menu_id = menus.find {|menu| menu.id == @menu_id}
@@ -81,7 +80,6 @@ def select_menu
       puts "その商品はありません。"  
       puts "もう一度選んでください。（半角数字）"
     else
-      #お会計を表示させたいがうまく行かない
       puts "お会計 : #{@menu_id.price}円"
       puts "お支払い方法を入力してください（現金 or クレジットカード）"
       break
