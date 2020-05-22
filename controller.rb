@@ -32,16 +32,14 @@ def select_genru
   end
   puts "-----------------------------------"
   puts "番号を選択してください（半角数字）"
-
   loop {
-    @genru_id = gets.to_i
+    $choice_genru = gets.to_i
   
     #変数に値が入っているか確認
-    if @genru_id.nil?
-      puts "もう一度番号を選択してください（半角数字）"
+    if $choice_genru ==1 or $choice_genru ==2 or $choice_genru ==3
+      break
     else
-      
-    break
+      puts "もう一度番号を選択してください（半角数字）"
     end
   }
 end
@@ -49,38 +47,36 @@ end
 
 # メニュー選択
 def select_menu
-  puts "メニュー"
   puts "-----------------------------------"
-  
-    if  @genru_id == 1
-      menus.slice(0..2).each do |menu|
-          puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
-      end  
-    elsif  @genru_id == 2
-      puts "2"
-      menus.slice(3..5).each do |menu|
+  if $choice_genru == 1 
+    menus.slice(0..2).each do |menu|
         puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
-      end      
-    else @genru_id == 3
-      menus.slice(6..8).each do |menu|
-        puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
-      end  
+    end  
+  elsif $choice_genru == 2
+    puts "2"
+    menus.slice(3..5).each do |menu|
+      puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
+    end      
+  else $choice_genru == 3
+    menus.slice(6..8).each do |menu|
+      puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
     end
+  end
   puts "-----------------------------------"
   puts "商品番号を選択してください（半角数字）"
 
-  loop {
+  giloop {
     # 商品名を受け取る
-    @menu_id = gets.to_i
+    $choice_menu = gets.to_i
 
-    @menu_id = menus.find {|menu| menu.id == @menu_id}
+    $choice_menu = menus.find {|menu| menu.id == $choice_menu}
 
     # 変数に値が入っているか確認
-    if @menu_id .nil?
+    if $choice_menu .nil?
       puts "その商品はありません。"  
       puts "もう一度選んでください。（半角数字）"
     else
-      puts "お会計 : #{@menu_id.price}円"
+      puts "お会計 : #{$choice_menu.price}円"
       puts "お支払い方法を入力してください（現金 or クレジットカード）"
       break
     end
@@ -124,7 +120,7 @@ def imput_address
       puts "入力が完了しました。"
       puts "ご注文ありがとうございました。"
       puts "#{Time.now}に注文が完了しました。"
-      puts "#{@menu_id.time}分前後でお届けいたします。"
+      puts "#{$choice_menu.time}分前後でお届けいたします。"
       break
     else
       puts "エラーです。郵便番号を入力してください。（入力形式○○○-○○○○/半角数字で記入）"
