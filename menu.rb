@@ -5,5 +5,6 @@ class Menus
     @name = params[:name]
     @price = params[:price]
     @time = params[:time]
+    @genre = params[:genre]
   end
 end
