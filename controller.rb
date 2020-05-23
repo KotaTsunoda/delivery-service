@@ -11,20 +11,20 @@ end
 
 def menus
   [
-    Menus.new(id:4, name: "マルゲリータ", price: 500, time: 30),
-    Menus.new(id:5, name: "ビスマルク", price: 600, time: 30),
-    Menus.new(id:6, name: "クアトロフォルマッジ", price: 650, time: 30),
-    Menus.new(id:7, name: "牛丼", price: 350, time: 25),
-    Menus.new(id:8, name: "天丼", price: 600, time: 35),
-    Menus.new(id:9, name: "カツ丼", price: 650, time: 35),
-    Menus.new(id:10, name: "ラーメン", price: 400, time: 20),
-    Menus.new(id:11, name: "ざるそば", price: 350, time: 20),
-    Menus.new(id:12, name: "わかめうどん", price: 380, time: 20),
+    Menus.new(id:4, name: "マルゲリータ", price: 500, time: 30, genre: "ピザ"),
+    Menus.new(id:5, name: "ビスマルク", price: 600, time: 30, genre: "ピザ"),
+    Menus.new(id:6, name: "クアトロフォルマッジ", price: 650, time: 30, genre: "ピザ"),
+    Menus.new(id:7, name: "牛丼", price: 350, time: 25, genre: "丼物"),
+    Menus.new(id:8, name: "天丼", price: 600, time: 35, genre: "丼物"),
+    Menus.new(id:9, name: "カツ丼", price: 650, time: 35, genre: "丼物"),
+    Menus.new(id:10, name: "ラーメン", price: 400, time: 20, genre: "麺類"),
+    Menus.new(id:11, name: "ざるそば", price: 350, time: 20, genre: "麺類"),
+    Menus.new(id:12, name: "わかめうどん", price: 380, time: 20, genre: "麺類"),
   ]
 end
 
 # ジャンル選択
-def select_genru
+def select_genre
   puts "ジャンル一覧"
   puts "-----------------------------------"
   genres.each do |genre|
@@ -33,10 +33,9 @@ def select_genru
   puts "-----------------------------------"
   puts "番号を選択してください（半角数字）"
   loop {
-    $choice_genru = gets.to_i
-  
+    $choice_genre = gets.to_i
     #変数に値が入っているか確認
-    if $choice_genru ==1 or $choice_genru ==2 or $choice_genru ==3
+    if $choice_genre ==1 or $choice_genre ==2 or $choice_genre ==3
       break
     else
       puts "もう一度番号を選択してください（半角数字）"
@@ -48,11 +47,11 @@ end
 # メニュー選択
 def select_menu
   puts "-----------------------------------"
-  if $choice_genru == 1 
-    menus.slice(0..2).each do |menu|
-        puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
+  if $choice_genre == 1 
+    menus.each do |menu|
+      puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
     end  
-  elsif $choice_genru == 2
+  elsif $choice_genre == 2
     puts "2"
     menus.slice(3..5).each do |menu|
       puts "番号:#{menu.id} #{menu.name}　#{menu.price}円  お届け時間#{menu.time}分"
@@ -65,7 +64,7 @@ def select_menu
   puts "-----------------------------------"
   puts "商品番号を選択してください（半角数字）"
 
-  giloop {
+  loop {
     # 商品名を受け取る
     $choice_menu = gets.to_i
 

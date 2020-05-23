@@ -1,7 +1,7 @@
 require './controller.rb'
 
 # ジャンル選択
-select_genru
+select_genre
 
 # メニュー選択
 select_menu
