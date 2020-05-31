@@ -5,4 +5,5 @@ class Genres
     @id = params[:id]
     @name = params[:name]
   end
+  
 end

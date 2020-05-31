@@ -1,5 +1,5 @@
 class Menus
-  attr_reader :id, :name, :price, :time
+  attr_reader :id, :name, :price, :time,:genre
   def initialize(**params)
     @id = params[:id]
     @name = params[:name]
@@ -8,3 +8,4 @@ class Menus
     @genre = params[:genre]
   end
 end
+
