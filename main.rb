@@ -1,18 +1,12 @@
-require './shopcontroller.rb'
+require './controller.rb'
 
-shopcontroller = ShopController.new
+genre = select_genre(genre)
 
-
-
-# ジャンル選択
-shopcontroller.select_genre
-
-# メニュー選択
-shopcontroller.select_menu(genre)
+#メニューの選択
+select_menu(genre)
 
 # お支払い方法の選択
-shopcontroller.select_how_to_pay
+ select_how_to_pay
 
 #住所の入力と注文完了のお知らせ
-shopcontroller.imput_address
-
+ imput_address

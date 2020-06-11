@@ -1,9 +1,9 @@
 class Genres
   attr_reader :id, :name
   
-  def initialize(**params)
-    @id = params[:id]
-    @name = params[:name]
+  def initialize(id:, name:)
+    @id = id
+    @name = name
   end
   
 end
