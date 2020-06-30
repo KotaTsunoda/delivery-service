@@ -5,5 +5,5 @@ class Genres
     @id = id
     @name = name
   end
-  
+
 end
